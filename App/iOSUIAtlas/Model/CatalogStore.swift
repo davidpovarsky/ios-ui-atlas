@@ -127,20 +127,20 @@ public final class CatalogStore: ObservableObject {
         var fallbackSymbols: [CatalogSymbol] = []
 
         let fallbackRelationships: [String: [CatalogRelation]] = [
-            "SwiftUI.Button": [.init(kind: .counterpart, target: "UIKit.UIButton", note: "UIKit equivalent")],
-            "UIKit.UIButton": [.init(kind: .counterpart, target: "SwiftUI.Button", note: "SwiftUI equivalent")],
-            "SwiftUI.Toggle": [.init(kind: .counterpart, target: "UIKit.UISwitch", note: "UIKit equivalent")],
-            "UIKit.UISwitch": [.init(kind: .counterpart, target: "SwiftUI.Toggle", note: "SwiftUI equivalent")],
-            "SwiftUI.Slider": [.init(kind: .counterpart, target: "UIKit.UISlider", note: "UIKit equivalent")],
-            "UIKit.UISlider": [.init(kind: .counterpart, target: "SwiftUI.Slider", note: "SwiftUI equivalent")],
-            "SwiftUI.TextField": [.init(kind: .counterpart, target: "UIKit.UITextField", note: "UIKit equivalent")],
-            "UIKit.UITextField": [.init(kind: .counterpart, target: "SwiftUI.TextField", note: "SwiftUI equivalent")],
-            "SwiftUI.TextEditor": [.init(kind: .counterpart, target: "UIKit.UITextView", note: "UIKit equivalent")],
-            "UIKit.UITextView": [.init(kind: .counterpart, target: "SwiftUI.TextEditor", note: "SwiftUI equivalent")],
-            "SwiftUI.DatePicker": [.init(kind: .counterpart, target: "UIKit.UIDatePicker", note: "UIKit equivalent")],
-            "UIKit.UIDatePicker": [.init(kind: .counterpart, target: "SwiftUI.DatePicker", note: "SwiftUI equivalent")],
-            "SwiftUI.ProgressView": [.init(kind: .counterpart, target: "UIKit.UIProgressView", note: "UIKit equivalent")],
-            "UIKit.UIProgressView": [.init(kind: .counterpart, target: "SwiftUI.ProgressView", note: "SwiftUI equivalent")]
+            "SwiftUI.Button": [.init(kind: .relatedUIKit, target: "UIKit.UIButton")],
+            "UIKit.UIButton": [.init(kind: .relatedSwiftUI, target: "SwiftUI.Button")],
+            "SwiftUI.Toggle": [.init(kind: .relatedUIKit, target: "UIKit.UISwitch")],
+            "UIKit.UISwitch": [.init(kind: .relatedSwiftUI, target: "SwiftUI.Toggle")],
+            "SwiftUI.Slider": [.init(kind: .relatedUIKit, target: "UIKit.UISlider")],
+            "UIKit.UISlider": [.init(kind: .relatedSwiftUI, target: "SwiftUI.Slider")],
+            "SwiftUI.TextField": [.init(kind: .relatedUIKit, target: "UIKit.UITextField")],
+            "UIKit.UITextField": [.init(kind: .relatedSwiftUI, target: "SwiftUI.TextField")],
+            "SwiftUI.TextEditor": [.init(kind: .relatedUIKit, target: "UIKit.UITextView")],
+            "UIKit.UITextView": [.init(kind: .relatedSwiftUI, target: "SwiftUI.TextEditor")],
+            "SwiftUI.DatePicker": [.init(kind: .relatedUIKit, target: "UIKit.UIDatePicker")],
+            "UIKit.UIDatePicker": [.init(kind: .relatedSwiftUI, target: "SwiftUI.DatePicker")],
+            "SwiftUI.ProgressView": [.init(kind: .relatedUIKit, target: "UIKit.UIProgressView")],
+            "UIKit.UIProgressView": [.init(kind: .relatedSwiftUI, target: "SwiftUI.ProgressView")]
         ]
 
         for demo in demos {
@@ -155,8 +155,8 @@ public final class CatalogStore: ObservableObject {
                 kind: demo.symbolID.contains(".View.") ? .modifier : (isSwiftUI ? .view : .classType),
                 category: .visualComponent,
                 family: demo.familyID,
-                demoID: demo.symbolID,
                 related: fallbackRelationships[demo.symbolID] ?? [],
+                demoID: demo.symbolID,
                 priority: 100
             ))
         }

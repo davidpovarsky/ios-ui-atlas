@@ -160,7 +160,7 @@ struct SymbolDetailView: View {
                             .bold()
                             .padding(.horizontal, 8)
                             .padding(.vertical, 3)
-                            .background(Color.tintColor.opacity(0.12), in: Capsule())
+                            .background(Color.accentColor.opacity(0.12), in: Capsule())
                         }
                     }
                 }
