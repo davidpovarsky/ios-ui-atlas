@@ -1,0 +1,127 @@
+[
+  {
+    "swiftUI": "SwiftUI.Button",
+    "uiKit": "UIKit.UIButton",
+    "noteKey": "relation.button"
+  },
+  {
+    "swiftUI": "SwiftUI.Toggle",
+    "uiKit": "UIKit.UISwitch",
+    "noteKey": "relation.toggle"
+  },
+  {
+    "swiftUI": "SwiftUI.Slider",
+    "uiKit": "UIKit.UISlider",
+    "noteKey": "relation.slider"
+  },
+  {
+    "swiftUI": "SwiftUI.Stepper",
+    "uiKit": "UIKit.UIStepper",
+    "noteKey": "relation.stepper"
+  },
+  {
+    "swiftUI": "SwiftUI.TextField",
+    "uiKit": "UIKit.UITextField",
+    "noteKey": "relation.text_field"
+  },
+  {
+    "swiftUI": "SwiftUI.TextEditor",
+    "uiKit": "UIKit.UITextView",
+    "noteKey": "relation.text_editor"
+  },
+  {
+    "swiftUI": "SwiftUI.DatePicker",
+    "uiKit": "UIKit.UIDatePicker",
+    "noteKey": "relation.date_picker"
+  },
+  {
+    "swiftUI": "SwiftUI.Picker",
+    "uiKit": "UIKit.UIPickerView",
+    "noteKey": "relation.picker"
+  },
+  {
+    "swiftUI": "SwiftUI.Picker",
+    "uiKit": "UIKit.UISegmentedControl",
+    "noteKey": "relation.picker_segmented"
+  },
+  {
+    "swiftUI": "SwiftUI.ColorPicker",
+    "uiKit": "UIKit.UIColorPickerViewController",
+    "noteKey": "relation.color_picker"
+  },
+  {
+    "swiftUI": "SwiftUI.ProgressView",
+    "uiKit": "UIKit.UIProgressView",
+    "noteKey": "relation.progress_view"
+  },
+  {
+    "swiftUI": "SwiftUI.List",
+    "uiKit": "UIKit.UITableView",
+    "noteKey": "relation.list_table"
+  },
+  {
+    "swiftUI": "SwiftUI.List",
+    "uiKit": "UIKit.UICollectionView",
+    "noteKey": "relation.list_collection"
+  },
+  {
+    "swiftUI": "SwiftUI.NavigationStack",
+    "uiKit": "UIKit.UINavigationController",
+    "noteKey": "relation.navigation"
+  },
+  {
+    "swiftUI": "SwiftUI.NavigationSplitView",
+    "uiKit": "UIKit.UISplitViewController",
+    "noteKey": "relation.split_view"
+  },
+  {
+    "swiftUI": "SwiftUI.TabView",
+    "uiKit": "UIKit.UITabBarController",
+    "noteKey": "relation.tab_bar"
+  },
+  {
+    "swiftUI": "SwiftUI.View.searchable",
+    "uiKit": "UIKit.UISearchController",
+    "noteKey": "relation.searchable_controller"
+  },
+  {
+    "swiftUI": "SwiftUI.View.searchable",
+    "uiKit": "UIKit.UISearchBar",
+    "noteKey": "relation.searchable_bar"
+  },
+  {
+    "swiftUI": "SwiftUI.View.sheet",
+    "uiKit": "UIKit.UISheetPresentationController",
+    "noteKey": "relation.sheet"
+  },
+  {
+    "swiftUI": "SwiftUI.View.popover",
+    "uiKit": "UIKit.UIPopoverPresentationController",
+    "noteKey": "relation.popover"
+  },
+  {
+    "swiftUI": "SwiftUI.View.alert",
+    "uiKit": "UIKit.UIAlertController",
+    "noteKey": "relation.alert"
+  },
+  {
+    "swiftUI": "SwiftUI.View.confirmationDialog",
+    "uiKit": "UIKit.UIAlertController",
+    "noteKey": "relation.confirmation_dialog"
+  },
+  {
+    "swiftUI": "SwiftUI.Menu",
+    "uiKit": "UIKit.UIMenu",
+    "noteKey": "relation.menu"
+  },
+  {
+    "swiftUI": "SwiftUI.ShareLink",
+    "uiKit": "UIKit.UIActivityViewController",
+    "noteKey": "relation.share_link"
+  },
+  {
+    "swiftUI": "SwiftUI.View.contextMenu",
+    "uiKit": "UIKit.UIContextMenuInteraction",
+    "noteKey": "relation.context_menu"
+  }
+]

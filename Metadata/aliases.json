@@ -1,0 +1,23 @@
+{
+  "sheet": ["SwiftUI.View.sheet", "UIKit.UISheetPresentationController", "SwiftUI.View.presentationDetents", "SwiftUI.View.presentationDragIndicator"],
+  "popover": ["SwiftUI.View.popover", "UIKit.UIPopoverPresentationController"],
+  "modal": ["SwiftUI.View.sheet", "SwiftUI.View.fullScreenCover", "UIKit.UISheetPresentationController"],
+  "dialog": ["SwiftUI.View.alert", "SwiftUI.View.confirmationDialog", "UIKit.UIAlertController"],
+  "alert": ["SwiftUI.View.alert", "UIKit.UIAlertController"],
+  "actionsheet": ["SwiftUI.View.confirmationDialog", "UIKit.UIAlertController"],
+  "menu": ["SwiftUI.Menu", "UIKit.UIMenu", "UIKit.UIAction", "UIKit.UIContextMenuInteraction"],
+  "contextmenu": ["SwiftUI.View.contextMenu", "UIKit.UIContextMenuInteraction"],
+  "search": ["SwiftUI.View.searchable", "UIKit.UISearchController", "UIKit.UISearchBar"],
+  "tab": ["SwiftUI.TabView", "UIKit.UITabBarController"],
+  "split": ["SwiftUI.NavigationSplitView", "UIKit.UISplitViewController"],
+  "nav": ["SwiftUI.NavigationStack", "UIKit.UINavigationController"],
+  "table": ["SwiftUI.List", "SwiftUI.Table", "UIKit.UITableView"],
+  "collection": ["SwiftUI.LazyVGrid", "SwiftUI.LazyHGrid", "UIKit.UICollectionView"],
+  "input": ["SwiftUI.TextField", "SwiftUI.SecureField", "SwiftUI.TextEditor", "UIKit.UITextField", "UIKit.UITextView"],
+  "pushbutton": ["SwiftUI.Button", "UIKit.UIButton"],
+  "switch": ["SwiftUI.Toggle", "UIKit.UISwitch"],
+  "slider": ["SwiftUI.Slider", "UIKit.UISlider"],
+  "picker": ["SwiftUI.Picker", "UIKit.UIPickerView", "UIKit.UISegmentedControl"],
+  "share": ["SwiftUI.ShareLink", "UIKit.UIActivityViewController"],
+  "spinner": ["SwiftUI.ProgressView", "UIKit.UIActivityIndicatorView"]
+}

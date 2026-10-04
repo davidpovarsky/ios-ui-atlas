@@ -1,0 +1,265 @@
+{
+  "metadata": {
+    "formatVersion": { "major": 0, "minor": 6, "patch": 0 },
+    "generator": "swift-symbolgraph-extract 600.0"
+  },
+  "module": {
+    "name": "UIKit",
+    "platform": { "architecture": "arm64", "vendor": "apple", "operatingSystem": { "name": "ios" } }
+  },
+  "symbols": [
+    {
+      "identifier": { "precise": "c:objc(cs)UIView", "interfaceLanguage": "swift" },
+      "names": { "title": "UIView" },
+      "pathComponents": ["UIView"],
+      "kind": { "identifier": "swift.class", "displayName": "Class" },
+      "accessLevel": "open",
+      "declarationFragments": [{ "kind": "keyword", "spelling": "class " }, { "kind": "identifier", "spelling": "UIView" }]
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UIViewController", "interfaceLanguage": "swift" },
+      "names": { "title": "UIViewController" },
+      "pathComponents": ["UIViewController"],
+      "kind": { "identifier": "swift.class", "displayName": "Class" },
+      "accessLevel": "open",
+      "declarationFragments": [{ "kind": "keyword", "spelling": "class " }, { "kind": "identifier", "spelling": "UIViewController" }]
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UIControl", "interfaceLanguage": "swift" },
+      "names": { "title": "UIControl" },
+      "pathComponents": ["UIControl"],
+      "kind": { "identifier": "swift.class", "displayName": "Class" },
+      "accessLevel": "open",
+      "declarationFragments": [{ "kind": "keyword", "spelling": "class " }, { "kind": "identifier", "spelling": "UIControl" }]
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UIButton", "interfaceLanguage": "swift" },
+      "names": { "title": "UIButton" },
+      "pathComponents": ["UIButton"],
+      "kind": { "identifier": "swift.class", "displayName": "Class" },
+      "accessLevel": "open",
+      "declarationFragments": [{ "kind": "keyword", "spelling": "class " }, { "kind": "identifier", "spelling": "UIButton" }],
+      "availability": [{ "domain": "iOS", "introduced": { "major": 2, "minor": 0 } }]
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UIButton(im)init", "interfaceLanguage": "swift" },
+      "names": { "title": "init()" },
+      "pathComponents": ["UIButton", "init()"],
+      "kind": { "identifier": "swift.init", "displayName": "Initializer" },
+      "accessLevel": "public",
+      "declarationFragments": [{ "kind": "keyword", "spelling": "init" }, { "kind": "text", "spelling": "()" }]
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UIButton(py)configuration", "interfaceLanguage": "swift" },
+      "names": { "title": "configuration" },
+      "pathComponents": ["UIButton", "configuration"],
+      "kind": { "identifier": "swift.property", "displayName": "Instance Property" },
+      "accessLevel": "public",
+      "declarationFragments": [{ "kind": "keyword", "spelling": "var " }, { "kind": "identifier", "spelling": "configuration" }]
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UILabel", "interfaceLanguage": "swift" },
+      "names": { "title": "UILabel" },
+      "pathComponents": ["UILabel"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UIImageView", "interfaceLanguage": "swift" },
+      "names": { "title": "UIImageView" },
+      "pathComponents": ["UIImageView"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UITextField", "interfaceLanguage": "swift" },
+      "names": { "title": "UITextField" },
+      "pathComponents": ["UITextField"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UITextView", "interfaceLanguage": "swift" },
+      "names": { "title": "UITextView" },
+      "pathComponents": ["UITextView"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UISwitch", "interfaceLanguage": "swift" },
+      "names": { "title": "UISwitch" },
+      "pathComponents": ["UISwitch"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UISlider", "interfaceLanguage": "swift" },
+      "names": { "title": "UISlider" },
+      "pathComponents": ["UISlider"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UIStepper", "interfaceLanguage": "swift" },
+      "names": { "title": "UIStepper" },
+      "pathComponents": ["UIStepper"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UIDatePicker", "interfaceLanguage": "swift" },
+      "names": { "title": "UIDatePicker" },
+      "pathComponents": ["UIDatePicker"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UIPickerView", "interfaceLanguage": "swift" },
+      "names": { "title": "UIPickerView" },
+      "pathComponents": ["UIPickerView"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UISearchBar", "interfaceLanguage": "swift" },
+      "names": { "title": "UISearchBar" },
+      "pathComponents": ["UISearchBar"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UISearchController", "interfaceLanguage": "swift" },
+      "names": { "title": "UISearchController" },
+      "pathComponents": ["UISearchController"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UINavigationController", "interfaceLanguage": "swift" },
+      "names": { "title": "UINavigationController" },
+      "pathComponents": ["UINavigationController"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UITabBarController", "interfaceLanguage": "swift" },
+      "names": { "title": "UITabBarController" },
+      "pathComponents": ["UITabBarController"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UISplitViewController", "interfaceLanguage": "swift" },
+      "names": { "title": "UISplitViewController" },
+      "pathComponents": ["UISplitViewController"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UITableView", "interfaceLanguage": "swift" },
+      "names": { "title": "UITableView" },
+      "pathComponents": ["UITableView"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UICollectionView", "interfaceLanguage": "swift" },
+      "names": { "title": "UICollectionView" },
+      "pathComponents": ["UICollectionView"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UIAlertController", "interfaceLanguage": "swift" },
+      "names": { "title": "UIAlertController" },
+      "pathComponents": ["UIAlertController"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UIPopoverPresentationController", "interfaceLanguage": "swift" },
+      "names": { "title": "UIPopoverPresentationController" },
+      "pathComponents": ["UIPopoverPresentationController"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UISheetPresentationController", "interfaceLanguage": "swift" },
+      "names": { "title": "UISheetPresentationController" },
+      "pathComponents": ["UISheetPresentationController"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UIMenu", "interfaceLanguage": "swift" },
+      "names": { "title": "UIMenu" },
+      "pathComponents": ["UIMenu"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UIAction", "interfaceLanguage": "swift" },
+      "names": { "title": "UIAction" },
+      "pathComponents": ["UIAction"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UIContextMenuInteraction", "interfaceLanguage": "swift" },
+      "names": { "title": "UIContextMenuInteraction" },
+      "pathComponents": ["UIContextMenuInteraction"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UIActivityViewController", "interfaceLanguage": "swift" },
+      "names": { "title": "UIActivityViewController" },
+      "pathComponents": ["UIActivityViewController"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UIDocumentPickerViewController", "interfaceLanguage": "swift" },
+      "names": { "title": "UIDocumentPickerViewController" },
+      "pathComponents": ["UIDocumentPickerViewController"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UIColorPickerViewController", "interfaceLanguage": "swift" },
+      "names": { "title": "UIColorPickerViewController" },
+      "pathComponents": ["UIColorPickerViewController"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    },
+    {
+      "identifier": { "precise": "c:objc(cs)UIFontPickerViewController", "interfaceLanguage": "swift" },
+      "names": { "title": "UIFontPickerViewController" },
+      "pathComponents": ["UIFontPickerViewController"],
+      "kind": { "identifier": "swift.class" },
+      "accessLevel": "open"
+    }
+  ],
+  "relationships": [
+    {
+      "kind": "inheritsFrom",
+      "source": "c:objc(cs)UIControl",
+      "target": "c:objc(cs)UIView"
+    },
+    {
+      "kind": "inheritsFrom",
+      "source": "c:objc(cs)UIButton",
+      "target": "c:objc(cs)UIControl"
+    },
+    {
+      "kind": "memberOf",
+      "source": "c:objc(cs)UIButton(im)init",
+      "target": "c:objc(cs)UIButton"
+    },
+    {
+      "kind": "memberOf",
+      "source": "c:objc(cs)UIButton(py)configuration",
+      "target": "c:objc(cs)UIButton"
+    }
+  ]
+}

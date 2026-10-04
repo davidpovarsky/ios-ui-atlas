@@ -1,0 +1,432 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "app.title": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "iOS UI Atlas" } },
+        "he": { "stringUnit": { "state": "translated", "value": "אטלס ממשק iOS" } }
+      }
+    },
+    "sidebar.explore": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Explore" } },
+        "he": { "stringUnit": { "state": "translated", "value": "חקירה" } }
+      }
+    },
+    "sidebar.home": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Home" } },
+        "he": { "stringUnit": { "state": "translated", "value": "בית" } }
+      }
+    },
+    "sidebar.components": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Components" } },
+        "he": { "stringUnit": { "state": "translated", "value": "רכיבים" } }
+      }
+    },
+    "sidebar.swiftui": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "SwiftUI" } },
+        "he": { "stringUnit": { "state": "translated", "value": "SwiftUI" } }
+      }
+    },
+    "sidebar.uikit": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "UIKit" } },
+        "he": { "stringUnit": { "state": "translated", "value": "UIKit" } }
+      }
+    },
+    "sidebar.modifiers": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Modifiers" } },
+        "he": { "stringUnit": { "state": "translated", "value": "משני תצוגה (Modifiers)" } }
+      }
+    },
+    "sidebar.families": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Families" } },
+        "he": { "stringUnit": { "state": "translated", "value": "משפחות רכיבים" } }
+      }
+    },
+    "sidebar.library": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Library" } },
+        "he": { "stringUnit": { "state": "translated", "value": "ספרייה" } }
+      }
+    },
+    "sidebar.favorites": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Favorites" } },
+        "he": { "stringUnit": { "state": "translated", "value": "מועדפים" } }
+      }
+    },
+    "sidebar.recents": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Recently Viewed" } },
+        "he": { "stringUnit": { "state": "translated", "value": "נצפו לאחרונה" } }
+      }
+    },
+    "sidebar.reference": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Reference" } },
+        "he": { "stringUnit": { "state": "translated", "value": "מפתח API מלא" } }
+      }
+    },
+    "sidebar.all_symbols": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "All Symbols" } },
+        "he": { "stringUnit": { "state": "translated", "value": "כל הסימבולים" } }
+      }
+    },
+    "sidebar.settings": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Settings & About" } },
+        "he": { "stringUnit": { "state": "translated", "value": "הגדרות ואודות" } }
+      }
+    },
+    "home.frameworks": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Frameworks" } },
+        "he": { "stringUnit": { "state": "translated", "value": "סביבות עבודה" } }
+      }
+    },
+    "home.families": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "HIG Component Families" } },
+        "he": { "stringUnit": { "state": "translated", "value": "משפחות רכיבי HIG" } }
+      }
+    },
+    "home.quick_access": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Quick Access" } },
+        "he": { "stringUnit": { "state": "translated", "value": "גישה מהירה" } }
+      }
+    },
+    "family.content": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Content" } },
+        "he": { "stringUnit": { "state": "translated", "value": "תוכן" } }
+      }
+    },
+    "family.layout_organization": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Layout & Organization" } },
+        "he": { "stringUnit": { "state": "translated", "value": "פריסה וארגון" } }
+      }
+    },
+    "family.menus_actions": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Menus & Actions" } },
+        "he": { "stringUnit": { "state": "translated", "value": "תפריטים ופעולות" } }
+      }
+    },
+    "family.navigation_search": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Navigation & Search" } },
+        "he": { "stringUnit": { "state": "translated", "value": "ניווט וחיפוש" } }
+      }
+    },
+    "family.presentation": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Presentation" } },
+        "he": { "stringUnit": { "state": "translated", "value": "הצגה ומודאלים" } }
+      }
+    },
+    "family.selection_input": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Selection & Input" } },
+        "he": { "stringUnit": { "state": "translated", "value": "בחירה וקלט" } }
+      }
+    },
+    "family.status": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Status" } },
+        "he": { "stringUnit": { "state": "translated", "value": "סטטוס וחיווי" } }
+      }
+    },
+    "family.system_experiences": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "System Experiences" } },
+        "he": { "stringUnit": { "state": "translated", "value": "חוויות מערכת" } }
+      }
+    },
+    "family.accessibility": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Accessibility" } },
+        "he": { "stringUnit": { "state": "translated", "value": "נגישות" } }
+      }
+    },
+    "family.gestures_interaction": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Gestures & Interaction" } },
+        "he": { "stringUnit": { "state": "translated", "value": "מחוות ואינטראקציה" } }
+      }
+    },
+    "family.effects_materials": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Effects & Materials" } },
+        "he": { "stringUnit": { "state": "translated", "value": "אפקטים וחומרים" } }
+      }
+    },
+    "family.developer_reference": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Developer Reference" } },
+        "he": { "stringUnit": { "state": "translated", "value": "עיון מפתחים" } }
+      }
+    },
+    "search.placeholder": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Search SwiftUI & UIKit..." } },
+        "he": { "stringUnit": { "state": "translated", "value": "חיפוש ב-SwiftUI וב-UIKit..." } }
+      }
+    },
+    "tab.preview": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Preview" } },
+        "he": { "stringUnit": { "state": "translated", "value": "תצוגה מקדימה" } }
+      }
+    },
+    "tab.variants": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Variants" } },
+        "he": { "stringUnit": { "state": "translated", "value": "וריאציות" } }
+      }
+    },
+    "tab.code": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Code" } },
+        "he": { "stringUnit": { "state": "translated", "value": "קוד" } }
+      }
+    },
+    "tab.api": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "API" } },
+        "he": { "stringUnit": { "state": "translated", "value": "ממשק API" } }
+      }
+    },
+    "detail.reference_only": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Reference only — no interactive visual demo" } },
+        "he": { "stringUnit": { "state": "translated", "value": "עיון בלבד — ללא הדגמה ויזואלית חיה" } }
+      }
+    },
+    "detail.select_symbol": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Select a Symbol" } },
+        "he": { "stringUnit": { "state": "translated", "value": "בחר סימבול" } }
+      }
+    },
+    "detail.select_symbol_description": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Choose a component or API from the sidebar to inspect its demo and signatures." } },
+        "he": { "stringUnit": { "state": "translated", "value": "בחר רכיב או ממשק מסרגל הצד כדי לצפות בהדגמה ובחתימות שלו." } }
+      }
+    },
+    "detail.related": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Related API:" } },
+        "he": { "stringUnit": { "state": "translated", "value": "רכיב מקביל:" } }
+      }
+    },
+    "link.apple_docs": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Documentation" } },
+        "he": { "stringUnit": { "state": "translated", "value": "תיעוד רשמי" } }
+      }
+    },
+    "link.hig": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "HIG" } },
+        "he": { "stringUnit": { "state": "translated", "value": "הנחיות HIG" } }
+      }
+    },
+    "code.copy": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Copy" } },
+        "he": { "stringUnit": { "state": "translated", "value": "העתק" } }
+      }
+    },
+    "code.copied": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Copied!" } },
+        "he": { "stringUnit": { "state": "translated", "value": "הועתק!" } }
+      }
+    },
+    "inspector.parameters": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Configuration Parameters" } },
+        "he": { "stringUnit": { "state": "translated", "value": "פרמטרים לקביעת תצורה" } }
+      }
+    },
+    "settings.sdk_environment": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "SDK Environment" } },
+        "he": { "stringUnit": { "state": "translated", "value": "סביבת ה-SDK" } }
+      }
+    },
+    "settings.xcode": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Xcode Version" } },
+        "he": { "stringUnit": { "state": "translated", "value": "גרסת Xcode" } }
+      }
+    },
+    "settings.xcode_build": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Xcode Build" } },
+        "he": { "stringUnit": { "state": "translated", "value": "בילד של Xcode" } }
+      }
+    },
+    "settings.sdk_version": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "iOS SDK" } },
+        "he": { "stringUnit": { "state": "translated", "value": "גרסת ה-SDK של iOS" } }
+      }
+    },
+    "settings.target_triple": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Target Triple" } },
+        "he": { "stringUnit": { "state": "translated", "value": "יעד מהדר (Triple)" } }
+      }
+    },
+    "settings.developer_options": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Developer Options" } },
+        "he": { "stringUnit": { "state": "translated", "value": "אפשרויות למפתחים" } }
+      }
+    },
+    "settings.show_internal": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Show internal / underscored SDK symbols" } },
+        "he": { "stringUnit": { "state": "translated", "value": "הצג סימבולים פנימיים/מודגשים של ה-SDK" } }
+      }
+    },
+    "settings.library_data": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Library Data" } },
+        "he": { "stringUnit": { "state": "translated", "value": "נתוני ספרייה" } }
+      }
+    },
+    "settings.clear_recents": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Recently Viewed History" } },
+        "he": { "stringUnit": { "state": "translated", "value": "היסטוריית צפייה לאחרונה" } }
+      }
+    },
+    "settings.clear": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Clear" } },
+        "he": { "stringUnit": { "state": "translated", "value": "נקה" } }
+      }
+    },
+    "settings.about": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "About" } },
+        "he": { "stringUnit": { "state": "translated", "value": "אודות" } }
+      }
+    },
+    "settings.version": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "App Version" } },
+        "he": { "stringUnit": { "state": "translated", "value": "גרסת אפליקציה" } }
+      }
+    },
+    "settings.license": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "License" } },
+        "he": { "stringUnit": { "state": "translated", "value": "רישיון" } }
+      }
+    },
+    "settings.disclaimer": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Unofficial developer reference; not affiliated with Apple Inc." } },
+        "he": { "stringUnit": { "state": "translated", "value": "מדריך עיון עצמאי למפתחים; אינו קשור לחברת אפל (Apple Inc)." } }
+      }
+    },
+    "list.no_symbols": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "No Symbols" } },
+        "he": { "stringUnit": { "state": "translated", "value": "לא נמצאו סימבולים" } }
+      }
+    },
+    "list.no_symbols_description": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Try adjusting your search query or filters." } },
+        "he": { "stringUnit": { "state": "translated", "value": "נסה לשנות את מונח החיפוש או הסינון." } }
+      }
+    },
+    "api.general": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "General Information" } },
+        "he": { "stringUnit": { "state": "translated", "value": "מידע כללי" } }
+      }
+    },
+    "api.framework": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Framework" } },
+        "he": { "stringUnit": { "state": "translated", "value": "סביבת עבודה" } }
+      }
+    },
+    "api.kind": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Kind" } },
+        "he": { "stringUnit": { "state": "translated", "value": "סוג סימבול" } }
+      }
+    },
+    "api.superclass": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Superclass" } },
+        "he": { "stringUnit": { "state": "translated", "value": "מחלקת בסיס" } }
+      }
+    },
+    "api.introduced": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Introduced" } },
+        "he": { "stringUnit": { "state": "translated", "value": "הוצג לראשונה" } }
+      }
+    },
+    "api.status": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Status" } },
+        "he": { "stringUnit": { "state": "translated", "value": "סטטוס" } }
+      }
+    },
+    "api.conformances": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Protocol Conformances" } },
+        "he": { "stringUnit": { "state": "translated", "value": "מימושי פרוטוקולים" } }
+      }
+    },
+    "api.cases": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Cases & Options" } },
+        "he": { "stringUnit": { "state": "translated", "value": "ערכי Enum ו-OptionSet" } }
+      }
+    },
+    "api.initializers": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Initializers & Signatures" } },
+        "he": { "stringUnit": { "state": "translated", "value": "בנאים וחתימות" } }
+      }
+    },
+    "api.members": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Methods & Properties" } },
+        "he": { "stringUnit": { "state": "translated", "value": "מתודות ותכונות" } }
+      }
+    },
+    "variant.default": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Default" } },
+        "he": { "stringUnit": { "state": "translated", "value": "ברירת מחדל" } }
+      }
+    },
+    "variant.tap_to_apply": {
+      "localizations": {
+        "en": { "stringUnit": { "state": "translated", "value": "Tap to configure preview" } },
+        "he": { "stringUnit": { "state": "translated", "value": "לחץ להחלת תצורה בתצוגה" } }
+      }
+    }
+  },
+  "version": "1.0"
+}

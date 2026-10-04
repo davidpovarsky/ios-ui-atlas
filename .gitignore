@@ -1,0 +1,19 @@
+# Xcode
+.DS_Store
+*/.DS_Store
+build/
+DerivedData/
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
+*.xcassets/LaunchScreen.imageset
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# Artifacts
+*.ipa
+Payload/
+*.xcresult
+*.log

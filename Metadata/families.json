@@ -1,0 +1,98 @@
+[
+  {
+    "id": "content",
+    "titleKey": "family.content",
+    "systemImage": "text.quote",
+    "group": "hig",
+    "higPath": "components/content",
+    "order": 1
+  },
+  {
+    "id": "layout-organization",
+    "titleKey": "family.layout_organization",
+    "systemImage": "rectangle.split.2x2",
+    "group": "hig",
+    "higPath": "components/layout-and-organization",
+    "order": 2
+  },
+  {
+    "id": "menus-actions",
+    "titleKey": "family.menus_actions",
+    "systemImage": "hand.tap",
+    "group": "hig",
+    "higPath": "components/menus-and-actions",
+    "order": 3
+  },
+  {
+    "id": "navigation-search",
+    "titleKey": "family.navigation_search",
+    "systemImage": "magnifyingglass",
+    "group": "hig",
+    "higPath": "components/navigation-and-search",
+    "order": 4
+  },
+  {
+    "id": "presentation",
+    "titleKey": "family.presentation",
+    "systemImage": "rectangle.stack.badge.plus",
+    "group": "hig",
+    "higPath": "components/presentation",
+    "order": 5
+  },
+  {
+    "id": "selection-input",
+    "titleKey": "family.selection_input",
+    "systemImage": "slider.horizontal.3",
+    "group": "hig",
+    "higPath": "components/selection-and-input",
+    "order": 6
+  },
+  {
+    "id": "status",
+    "titleKey": "family.status",
+    "systemImage": "gauge.with.needle",
+    "group": "hig",
+    "higPath": "components/status",
+    "order": 7
+  },
+  {
+    "id": "system-experiences",
+    "titleKey": "family.system_experiences",
+    "systemImage": "apple.terminal",
+    "group": "hig",
+    "higPath": "components/system-experiences",
+    "order": 8
+  },
+  {
+    "id": "accessibility",
+    "titleKey": "family.accessibility",
+    "systemImage": "figure.roll",
+    "group": "developer",
+    "higPath": "foundations/accessibility",
+    "order": 9
+  },
+  {
+    "id": "gestures-interaction",
+    "titleKey": "family.gestures_interaction",
+    "systemImage": "hand.draw",
+    "group": "developer",
+    "higPath": "foundations/gestures",
+    "order": 10
+  },
+  {
+    "id": "effects-materials",
+    "titleKey": "family.effects_materials",
+    "systemImage": "sparkles",
+    "group": "developer",
+    "higPath": "foundations/materials",
+    "order": 11
+  },
+  {
+    "id": "developer-reference",
+    "titleKey": "family.developer_reference",
+    "systemImage": "book.closed",
+    "group": "developer",
+    "higPath": null,
+    "order": 12
+  }
+]

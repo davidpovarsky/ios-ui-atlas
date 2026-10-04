@@ -1,0 +1,128 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate Catalog & App
+    runs-on: xcode-27
+    timeout-minutes: 35
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup log directory
+        run: |
+          mkdir -p build/logs
+          echo "VALIDATE_LOG_DIR=$GITHUB_WORKSPACE/build/logs" >> "$GITHUB_ENV"
+
+      - name: Inspect environment
+        run: |
+          {
+            echo "===== OS & Hardware ====="
+            sw_vers
+            uname -a
+
+            echo
+            echo "===== Xcode environment ====="
+            xcodebuild -version
+            swift --version
+
+            echo
+            echo "===== Available SDKs ====="
+            xcodebuild -showsdks
+          } 2>&1 | tee "$VALIDATE_LOG_DIR/01-environment.log"
+
+      - name: Run Package Unit Tests
+        run: |
+          {
+            echo "Running CatalogModel tests..."
+            swift test --package-path Packages/CatalogModel
+
+            echo "Running CatalogDemos tests..."
+            swift test --package-path Packages/CatalogDemos
+
+            echo "Running AppleSDKInventory tests..."
+            swift test --package-path Packages/AppleSDKInventory
+          } 2>&1 | tee "$VALIDATE_LOG_DIR/02-package-tests.log"
+
+      - name: Install XcodeGen
+        run: |
+          if ! command -v xcodegen &> /dev/null; then
+            echo "Installing xcodegen via Homebrew..."
+            brew install xcodegen
+          fi
+          xcodegen --version 2>&1 | tee "$VALIDATE_LOG_DIR/03-xcodegen-version.log"
+
+      - name: Generate Xcode project
+        run: |
+          xcodegen generate 2>&1 | tee "$VALIDATE_LOG_DIR/04-xcodegen-generate.log"
+          test -d iOSUIAtlas.xcodeproj
+
+      - name: Discover iOS Simulators
+        id: simulators
+        run: |
+          echo "===== Available Simulators ====="
+          xcrun simctl list devices available
+
+          IPHONE_ID=$(xcrun simctl list devices available | grep -i "iPhone" | head -n 1 | sed -E 's/.*\(([0-9A-F-]+)\).*/\1/')
+          IPAD_ID=$(xcrun simctl list devices available | grep -i "iPad" | head -n 1 | sed -E 's/.*\(([0-9A-F-]+)\).*/\1/')
+
+          echo "Selected iPhone UDID: $IPHONE_ID"
+          echo "Selected iPad UDID: $IPAD_ID"
+
+          echo "iphone_udid=$IPHONE_ID" >> "$GITHUB_OUTPUT"
+          echo "ipad_udid=$IPAD_ID" >> "$GITHUB_OUTPUT"
+
+      - name: Run App Unit Tests (iPhone Simulator)
+        run: |
+          set -o pipefail
+          DEST="id=${{ steps.simulators.outputs.iphone_udid }}"
+          if [ -z "${{ steps.simulators.outputs.iphone_udid }}" ]; then
+            DEST="platform=iOS Simulator,name=iPhone 16"
+          fi
+          echo "Running tests on destination: $DEST"
+          xcodebuild test \
+            -project iOSUIAtlas.xcodeproj \
+            -scheme iOSUIAtlas \
+            -destination "$DEST" \
+            -only-testing:iOSUIAtlasTests \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            2>&1 | tee "$VALIDATE_LOG_DIR/05-app-unit-tests.log"
+
+      - name: Run Smoke UI Tests (iPad Simulator)
+        run: |
+          set -o pipefail
+          DEST="id=${{ steps.simulators.outputs.ipad_udid }}"
+          if [ -z "${{ steps.simulators.outputs.ipad_udid }}" ]; then
+            DEST="platform=iOS Simulator,name=iPad Pro 11-inch (M4)"
+          fi
+          echo "Running UI smoke tests on iPad destination: $DEST"
+          xcodebuild test \
+            -project iOSUIAtlas.xcodeproj \
+            -scheme iOSUIAtlas \
+            -destination "$DEST" \
+            -only-testing:iOSUIAtlasUITests \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            2>&1 | tee "$VALIDATE_LOG_DIR/06-ipad-ui-smoke.log"
+
+      - name: Upload validation logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iOS-UI-Atlas-validate-logs
+          path: build/logs
+          retention-days: 14

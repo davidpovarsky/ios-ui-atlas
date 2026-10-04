@@ -1,0 +1,155 @@
+name: Build iOS Unsigned IPA
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  build-ipa:
+    name: Build Unsigned IPA
+    runs-on: xcode-27
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup log directory
+        run: |
+          mkdir -p build/logs
+          echo "BUILD_LOG_DIR=$GITHUB_WORKSPACE/build/logs" >> "$GITHUB_ENV"
+
+      - name: Inspect build environment
+        run: |
+          {
+            echo "===== OS & Hardware ====="
+            sw_vers
+            uname -a
+            sysctl -n machdep.cpu.brand_string || true
+
+            echo
+            echo "===== Xcode environment ====="
+            xcodebuild -version
+            xcrun --find swift
+            swift --version
+
+            echo
+            echo "===== Installed SDKs ====="
+            xcodebuild -showsdks
+
+            echo
+            echo "===== iPhoneOS SDK Path ====="
+            xcrun --sdk iphoneos --show-sdk-path
+          } 2>&1 | tee "$BUILD_LOG_DIR/01-environment.log"
+
+      - name: Install XcodeGen
+        run: |
+          if ! command -v xcodegen &> /dev/null; then
+            echo "Installing xcodegen via Homebrew..."
+            brew install xcodegen
+          fi
+          xcodegen --version 2>&1 | tee "$BUILD_LOG_DIR/02-xcodegen-version.log"
+
+      - name: Generate Xcode project
+        run: |
+          xcodegen generate 2>&1 | tee "$BUILD_LOG_DIR/03-xcodegen-generate.log"
+          test -d iOSUIAtlas.xcodeproj
+
+      - name: Run package unit tests
+        run: |
+          {
+            echo "Running CatalogModel tests..."
+            swift test --package-path Packages/CatalogModel
+
+            echo "Running CatalogDemos tests..."
+            swift test --package-path Packages/CatalogDemos
+          } 2>&1 | tee "$BUILD_LOG_DIR/04-package-tests.log"
+
+      - name: Build Release application for device (unsigned)
+        run: |
+          set -o pipefail
+          {
+            echo "Building Release device application..."
+            xcodebuild -project iOSUIAtlas.xcodeproj \
+              -scheme iOSUIAtlas \
+              -configuration Release \
+              -sdk iphoneos \
+              -destination "generic/platform=iOS" \
+              -derivedDataPath build/DerivedData \
+              CODE_SIGNING_ALLOWED=NO \
+              CODE_SIGNING_REQUIRED=NO \
+              CODE_SIGN_IDENTITY="" \
+              PROVISIONING_PROFILE_SPECIFIER="" \
+              DEVELOPMENT_TEAM="" \
+              build
+          } 2>&1 | tee "$BUILD_LOG_DIR/05-xcodebuild-device.log"
+
+      - name: Locate built .app bundle
+        id: locate-app
+        run: |
+          echo "Locating built Release-iphoneos .app..."
+          APP_PATH="$(find build/DerivedData/Build/Products -path "*Release-iphoneos/*.app" -type d -print -quit || true)"
+          if [ -z "$APP_PATH" ] || [ ! -d "$APP_PATH" ]; then
+            echo "ERROR: Could not locate built .app bundle!"
+            find build/DerivedData/Build/Products -maxdepth 4 -print || true
+            exit 1
+          fi
+          echo "Found app at: $APP_PATH"
+          echo "app_path=$APP_PATH" >> "$GITHUB_OUTPUT"
+          echo "$APP_PATH" > "$BUILD_LOG_DIR/app-path.txt"
+
+          echo
+          echo "===== App bundle inspect ====="
+          ls -la "$APP_PATH"
+
+      - name: Package unsigned IPA
+        run: |
+          set -e
+          APP_PATH="${{ steps.locate-app.outputs.app_path }}"
+          IPA_NAME="iOS-UI-Atlas-unsigned.ipa"
+
+          echo "Packaging unsigned IPA from: $APP_PATH"
+          rm -rf Payload "$IPA_NAME"
+          mkdir -p Payload
+          cp -R "$APP_PATH" Payload/
+
+          echo "Creating zip archive..."
+          zip -qry "$IPA_NAME" Payload
+
+          echo "Verifying archive contents..."
+          unzip -l "$IPA_NAME" | head -n 50
+
+          echo "Recording checksum and byte size..."
+          shasum -a 256 "$IPA_NAME" | tee "$BUILD_LOG_DIR/ipa-sha256.txt"
+          stat -f %z "$IPA_NAME" | tee "$BUILD_LOG_DIR/ipa-size-bytes.txt"
+
+          test -f "$IPA_NAME"
+          echo "Unsigned IPA packaged successfully: $(cat "$BUILD_LOG_DIR/ipa-size-bytes.txt") bytes."
+
+      - name: Upload unsigned IPA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: iOS-UI-Atlas-unsigned-ipa
+          path: iOS-UI-Atlas-unsigned.ipa
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload build logs artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iOS-UI-Atlas-build-logs
+          path: build/logs
+          retention-days: 14
+
+      - name: Upload SDK metadata artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SDK-inventory
+          path: Metadata
+          retention-days: 14

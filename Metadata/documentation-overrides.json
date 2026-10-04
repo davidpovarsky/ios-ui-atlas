@@ -1,0 +1,13 @@
+{
+  "SwiftUI.View.sheet": "swiftui/view/sheet(ispresented:ondismiss:content:)",
+  "SwiftUI.View.searchable": "swiftui/view/searchable(text:placement:prompt:)-2078r",
+  "SwiftUI.View.popover": "swiftui/view/popover(ispresented:attachmentanchor:arrowedge:content:)",
+  "SwiftUI.View.alert": "swiftui/view/alert(_:ispresented:actions:message:)",
+  "SwiftUI.View.confirmationDialog": "swiftui/view/confirmationdialog(_:ispresented:titlevisibility:actions:message:)",
+  "SwiftUI.View.presentationDetents": "swiftui/view/presentationdetents(_:)",
+  "SwiftUI.View.presentationDragIndicator": "swiftui/view/presentationdragindicator(_:)",
+  "SwiftUI.Button": "swiftui/button",
+  "UIKit.UIButton": "uikit/uibutton",
+  "UIKit.UISheetPresentationController": "uikit/uisheetpresentationcontroller",
+  "UIKit.UIMenu": "uikit/uimenu"
+}
