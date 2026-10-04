@@ -1,0 +1,46 @@
+name: Probe runners
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [macos-26, macos-latest, xcode-27]
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 30
+    continue-on-error: true
+    steps:
+      - name: Environment
+        run: |
+          set -x
+          sw_vers || true
+          uname -m
+          ls -d /Applications/Xcode*.app || true
+          xcode-select -p || true
+          xcodebuild -version || true
+          xcodebuild -showsdks || true
+          xcrun simctl list runtimes || true
+          xcrun simctl list devices available | head -60 || true
+          swift --version || true
+      - name: Probe newest stable Xcode symbol graph
+        run: |
+          set -x
+          newest=""
+          for x in $(ls -d /Applications/Xcode_*.app | grep -viE 'beta|release_candidate|_rc' | sort -V); do newest="$x"; done
+          echo "newest stable: $newest"
+          export DEVELOPER_DIR="$newest/Contents/Developer"
+          xcodebuild -version
+          sdk="$(xcrun --sdk iphoneos --show-sdk-path)"
+          ver="$(xcrun --sdk iphoneos --show-sdk-version)"
+          echo "$sdk $ver"
+          ls "$sdk/System/Library/Frameworks/SwiftUI.framework/Modules/SwiftUI.swiftmodule" || true
+          ls "$sdk/System/Library/Frameworks/SwiftUICore.framework/Modules/SwiftUICore.swiftmodule" || true
+          mkdir -p /tmp/sg
+          time xcrun swift-symbolgraph-extract -module-name UIKit -target "arm64-apple-ios$ver" -sdk "$sdk" -minimum-access-level public -output-dir /tmp/sg || true
+          ls -la /tmp/sg || true
