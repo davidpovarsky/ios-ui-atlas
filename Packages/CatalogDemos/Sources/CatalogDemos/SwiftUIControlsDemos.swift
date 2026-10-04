@@ -39,13 +39,10 @@ public struct SwiftUIButtonDemo: CatalogDemoProvider {
         let role: ButtonRole? = roleStr == "destructive" ? .destructive : (roleStr == "cancel" ? .cancel : nil)
 
         return AnyView(
-            Button(role: role, action: {}) {
-                Text(title)
-            }
-            .buttonStyle(resolveStyle(style))
-            .controlSize(resolveSize(sizeStr))
-            .tint(tint)
-            .disabled(!enabled)
+            styledButton(role: role, title: title, style: style)
+                .controlSize(resolveSize(sizeStr))
+                .tint(tint)
+                .disabled(!enabled)
         )
     }
 
@@ -84,13 +81,19 @@ public struct SwiftUIButtonDemo: CatalogDemoProvider {
         """
     }
 
-    private func resolveStyle(_ name: String) -> AnyButtonStyle {
-        switch name {
-        case "bordered": return AnyButtonStyle(BorderedButtonStyle())
-        case "borderedProminent": return AnyButtonStyle(BorderedProminentButtonStyle())
-        case "borderless": return AnyButtonStyle(BorderlessButtonStyle())
-        case "plain": return AnyButtonStyle(PlainButtonStyle())
-        default: return AnyButtonStyle(AutomaticButtonStyle())
+    @ViewBuilder
+    private func styledButton(role: ButtonRole?, title: String, style: String) -> some View {
+        switch style {
+        case "bordered":
+            Button(role: role, action: {}) { Text(title) }.buttonStyle(.bordered)
+        case "borderedProminent":
+            Button(role: role, action: {}) { Text(title) }.buttonStyle(.borderedProminent)
+        case "borderless":
+            Button(role: role, action: {}) { Text(title) }.buttonStyle(.borderless)
+        case "plain":
+            Button(role: role, action: {}) { Text(title) }.buttonStyle(.plain)
+        default:
+            Button(role: role, action: {}) { Text(title) }.buttonStyle(.automatic)
         }
     }
 
@@ -114,17 +117,6 @@ public struct SwiftUIButtonDemo: CatalogDemoProvider {
         case "red": return .red
         default: return .blue
         }
-    }
-}
-
-// Wrapper to type-erase ButtonStyle
-struct AnyButtonStyle: ButtonStyle {
-    private let _makeBody: (Configuration) -> AnyView
-    init<S: ButtonStyle>(_ style: S) {
-        _makeBody = { AnyView(style.makeBody(configuration: $0)) }
-    }
-    func makeBody(configuration: Configuration) -> some View {
-        _makeBody(configuration)
     }
 }
 
