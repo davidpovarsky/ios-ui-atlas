@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "AppleSDKInventory",
-    platforms: [.macOS(.v15), .iOS(.v26)],
+    platforms: [.macOS(.v14), .iOS(.v17)],
     products: [
         .library(name: "AppleSDKInventoryCore", targets: ["AppleSDKInventoryCore"]),
         .executable(name: "sdk-inventory", targets: ["SDKInventoryCLI"]),
