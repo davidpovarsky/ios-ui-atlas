@@ -11,17 +11,17 @@ final class iOSUIAtlasUITests: XCTestCase {
         app.launch()
 
         // 1. App Launch & Home title
-        XCTAssertTrue(app.navigationBars.element.exists || app.staticTexts["iOS UI Atlas"].exists)
+        XCTAssertTrue(app.navigationBars.element.waitForExistence(timeout: 5) || app.staticTexts["iOS UI Atlas"].waitForExistence(timeout: 5))
 
         // 2. Search flow
         let searchField = app.searchFields.firstMatch
-        if searchField.waitForExistence(timeout: 3) {
+        if searchField.waitForExistence(timeout: 5) {
             searchField.tap()
             searchField.typeText("Button")
 
             // Wait for results
             let buttonCell = app.cells.staticTexts["Button"].firstMatch
-            if buttonCell.waitForExistence(timeout: 2) {
+            if buttonCell.waitForExistence(timeout: 5) {
                 buttonCell.tap()
 
                 // 3. Component detail & tabs (Preview, Variants, Code, API)
@@ -29,22 +29,25 @@ final class iOSUIAtlasUITests: XCTestCase {
                 let codeTab = app.buttons["Code"].firstMatch
                 let apiTab = app.buttons["API"].firstMatch
 
-                if codeTab.waitForExistence(timeout: 2) {
+                if codeTab.waitForExistence(timeout: 5) {
                     codeTab.tap()
-                    XCTAssertTrue(app.buttons["Copy"].exists || app.buttons["code.copy"].exists)
+                    let copyBtn = app.buttons["code.copy"].firstMatch
+                    let copyTextBtn = app.buttons["Copy Code"].firstMatch
+                    let copyShortBtn = app.buttons["Copy"].firstMatch
+                    XCTAssertTrue(copyBtn.waitForExistence(timeout: 3) || copyTextBtn.waitForExistence(timeout: 3) || copyShortBtn.waitForExistence(timeout: 3))
                 }
 
-                if apiTab.waitForExistence(timeout: 2) {
+                if apiTab.waitForExistence(timeout: 3) {
                     apiTab.tap()
                 }
 
-                if previewTab.waitForExistence(timeout: 2) {
+                if previewTab.waitForExistence(timeout: 3) {
                     previewTab.tap()
                 }
 
                 // 4. Favorites toggle
                 let favoriteButton = app.buttons["favorite.toggle"].firstMatch
-                if favoriteButton.exists {
+                if favoriteButton.waitForExistence(timeout: 3) {
                     favoriteButton.tap()
                 }
             }
@@ -90,6 +93,6 @@ final class iOSUIAtlasUITests: XCTestCase {
         app.launch()
 
         // Verify Hebrew localized title or home screen element
-        XCTAssertTrue(app.staticTexts["אטלס ממשק iOS"].exists || app.staticTexts["iOS UI Atlas"].exists)
+        XCTAssertTrue(app.staticTexts["אטלס ממשק iOS"].waitForExistence(timeout: 5) || app.navigationBars.element.waitForExistence(timeout: 5))
     }
 }

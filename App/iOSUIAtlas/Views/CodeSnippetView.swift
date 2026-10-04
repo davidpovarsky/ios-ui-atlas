@@ -31,6 +31,7 @@ struct CodeSnippetView: View {
                         .padding(.vertical, 6)
                         .background(Color.secondary.opacity(0.12), in: Capsule())
                 }
+                .accessibilityIdentifier("code.copy")
             }
 
             // Code container — always LTR

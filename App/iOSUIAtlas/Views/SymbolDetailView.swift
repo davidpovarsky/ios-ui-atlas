@@ -65,6 +65,7 @@ struct SymbolDetailView: View {
                     Image(systemName: favorites.isFavorite(symbol.id) ? "star.fill" : "star")
                         .foregroundStyle(favorites.isFavorite(symbol.id) ? .yellow : .primary)
                 }
+                .accessibilityIdentifier("favorite.toggle")
             }
         }
         .onAppear {

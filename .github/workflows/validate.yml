@@ -86,7 +86,7 @@ jobs:
       - name: Run App Unit Tests (iPhone Simulator)
         run: |
           set -o pipefail
-          DEST="id=${{ steps.simulators.outputs.iphone_udid }}"
+          DEST="platform=iOS Simulator,id=${{ steps.simulators.outputs.iphone_udid }}"
           if [ -z "${{ steps.simulators.outputs.iphone_udid }}" ]; then
             DEST="platform=iOS Simulator,name=iPhone 16"
           fi
@@ -96,6 +96,8 @@ jobs:
             -scheme iOSUIAtlas \
             -destination "$DEST" \
             -only-testing:iOSUIAtlasTests \
+            -test-timeouts-enabled YES \
+            -maximum-test-execution-time-allowance 120 \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY="" \
@@ -104,8 +106,11 @@ jobs:
       - name: Run Smoke UI Tests (iPad Simulator)
         run: |
           set -o pipefail
-          DEST="id=${{ steps.simulators.outputs.ipad_udid }}"
-          if [ -z "${{ steps.simulators.outputs.ipad_udid }}" ]; then
+          IPAD_UDID="${{ steps.simulators.outputs.ipad_udid }}"
+          if [ -n "$IPAD_UDID" ]; then
+            xcrun simctl boot "$IPAD_UDID" || true
+            DEST="platform=iOS Simulator,id=$IPAD_UDID"
+          else
             DEST="platform=iOS Simulator,name=iPad Pro 11-inch (M4)"
           fi
           echo "Running UI smoke tests on iPad destination: $DEST"
@@ -114,6 +119,8 @@ jobs:
             -scheme iOSUIAtlas \
             -destination "$DEST" \
             -only-testing:iOSUIAtlasUITests \
+            -test-timeouts-enabled YES \
+            -maximum-test-execution-time-allowance 120 \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY="" \
