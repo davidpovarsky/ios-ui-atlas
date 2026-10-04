@@ -3,12 +3,8 @@ import CatalogModel
 import CatalogDemos
 @testable import iOSUIAtlas
 
+@MainActor
 final class iOSUIAtlasTests: XCTestCase {
-
-    override func setUp() {
-        super.setUp()
-        CatalogDemoRegistry.shared.registerAllDemos()
-    }
 
     func testFavoritesAndRecents() {
         let favorites = FavoritesManager()
@@ -23,9 +19,9 @@ final class iOSUIAtlasTests: XCTestCase {
         favorites.toggleFavorite(testID)
         XCTAssertTrue(favorites.isFavorite(testID))
 
-        favorites.addRecent(testID)
-        XCTAssertTrue(favorites.recentSymbolIDs.contains(testID))
-        XCTAssertEqual(favorites.recentSymbolIDs.first, testID)
+        favorites.recordViewed(testID)
+        XCTAssertTrue(favorites.recentIDs.contains(testID))
+        XCTAssertEqual(favorites.recentIDs.first, testID)
 
         favorites.toggleFavorite(testID)
         XCTAssertFalse(favorites.isFavorite(testID))
@@ -33,6 +29,7 @@ final class iOSUIAtlasTests: XCTestCase {
 
     func testCatalogStoreFallbackLoading() {
         let store = CatalogStore()
+        store.loadFallbackData()
         XCTAssertNotNil(store.manifest)
         XCTAssertFalse(store.allSymbols.isEmpty)
 
@@ -47,6 +44,7 @@ final class iOSUIAtlasTests: XCTestCase {
 
     func testSearchIndexIntegration() {
         let store = CatalogStore()
+        store.loadFallbackData()
         let results = store.search("Button")
         XCTAssertFalse(results.isEmpty)
         XCTAssertTrue(results.contains(where: { $0.symbolID.contains("Button") }))
@@ -56,24 +54,25 @@ final class iOSUIAtlasTests: XCTestCase {
         let registered = CatalogDemoRegistry.shared.allDemos
         XCTAssertGreaterThanOrEqual(registered.count, 70, "Must have at least 70 curated demos")
 
-        // Every demo has non-empty ID and title
+        // Every demo has non-empty symbolID and titleKey
         for demo in registered {
-            XCTAssertFalse(demo.id.isEmpty)
-            XCTAssertFalse(demo.title.isEmpty)
             XCTAssertFalse(demo.symbolID.isEmpty)
+            XCTAssertFalse(demo.titleKey.isEmpty)
+            XCTAssertFalse(demo.familyID.isEmpty)
         }
     }
 
     func testCrossFrameworkRelationships() {
         let store = CatalogStore()
-        let button = store.symbol(id: "SwiftUI.Button")
+        store.loadFallbackData()
+        let button = store.symbol(for: "SwiftUI.Button")
         XCTAssertNotNil(button)
         if let button = button {
             XCTAssertTrue(button.related.contains(where: { $0.target == "UIKit.UIButton" }),
                           "SwiftUI Button must be linked to UIKit UIButton")
         }
 
-        let uiButton = store.symbol(id: "UIKit.UIButton")
+        let uiButton = store.symbol(for: "UIKit.UIButton")
         XCTAssertNotNil(uiButton)
         if let uiButton = uiButton {
             XCTAssertTrue(uiButton.related.contains(where: { $0.target == "SwiftUI.Button" }),
