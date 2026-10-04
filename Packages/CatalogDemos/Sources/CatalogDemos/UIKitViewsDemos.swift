@@ -28,16 +28,13 @@ public struct UIKitUILabelDemo: CatalogDemoProvider {
         let alignStr = state.string(for: "alignment", default: "center")
 
         return AnyView(
-            UIKitViewHost { _ in
+            UIKitViewHost {
                 let label = UILabel()
                 label.text = text
                 label.font = .preferredFont(forTextStyle: .headline)
                 label.textAlignment = alignStr == "center" ? .center : (alignStr == "right" ? .right : .natural)
                 label.numberOfLines = 0
                 return label
-            } update: { label, _ in
-                label.text = text
-                label.textAlignment = alignStr == "center" ? .center : (alignStr == "right" ? .right : .natural)
             }
             .frame(maxWidth: 260)
         )
@@ -78,7 +75,7 @@ public struct UIKitUIImageViewDemo: CatalogDemoProvider {
     public func makePreview(state: DemoState) -> AnyView {
         #if canImport(UIKit)
         return AnyView(
-            UIKitViewHost { _ in
+            UIKitViewHost {
                 let iv = UIImageView(image: UIImage(systemName: "photo.stack.fill"))
                 iv.contentMode = .scaleAspectFit
                 iv.tintColor = .systemBlue
@@ -125,12 +122,10 @@ public struct UIKitUIProgressViewDemo: CatalogDemoProvider {
         let p = Float(state.double(for: "progress", default: 0.6))
 
         return AnyView(
-            UIKitViewHost { _ in
+            UIKitViewHost {
                 let pv = UIProgressView(progressViewStyle: .default)
                 pv.progress = p
                 return pv
-            } update: { pv, _ in
-                pv.progress = p
             }
             .frame(width: 200, height: 20)
         )
@@ -169,7 +164,7 @@ public struct UIKitUITableViewDemo: CatalogDemoProvider {
     public func makePreview(state: DemoState) -> AnyView {
         #if canImport(UIKit)
         return AnyView(
-            UIKitViewHost { _ in
+            UIKitViewHost {
                 let tv = UITableView(frame: .zero, style: .insetGrouped)
                 let dataSource = MockTableDataSource()
                 tv.dataSource = dataSource
@@ -227,7 +222,7 @@ public struct UIKitUICollectionViewDemo: CatalogDemoProvider {
     public func makePreview(state: DemoState) -> AnyView {
         #if canImport(UIKit)
         return AnyView(
-            UIKitViewHost { _ in
+            UIKitViewHost {
                 let layout = UICollectionViewFlowLayout()
                 layout.itemSize = CGSize(width: 44, height: 44)
                 layout.scrollDirection = .horizontal

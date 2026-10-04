@@ -37,7 +37,7 @@ targets:
       - package: CatalogDemos
     settings:
       base:
-        PRODUCT_NAME: "iOS UI Atlas"
+        PRODUCT_NAME: iOSUIAtlas
         PRODUCT_BUNDLE_IDENTIFIER: com.davidpovarsky.ios-ui-atlas
         INFOPLIST_FILE: App/iOSUIAtlas/Info.plist
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon

@@ -32,14 +32,11 @@ public struct UIKitUIButtonDemo: CatalogDemoProvider {
         let enabled = state.bool(for: "enabled", default: true)
 
         return AnyView(
-            UIKitViewHost { _ in
+            UIKitViewHost {
                 let btn = UIButton(type: .system)
                 btn.configuration = Self.makeConfig(style: style, title: title)
                 btn.isEnabled = enabled
                 return btn
-            } update: { btn, _ in
-                btn.configuration = Self.makeConfig(style: style, title: title)
-                btn.isEnabled = enabled
             }
             .frame(width: 160, height: 44)
         )
@@ -110,14 +107,11 @@ public struct UIKitUISwitchDemo: CatalogDemoProvider {
         let enabled = state.bool(for: "enabled", default: true)
 
         return AnyView(
-            UIKitViewHost { _ in
+            UIKitViewHost {
                 let sw = UISwitch()
                 sw.isOn = isOn
                 sw.isEnabled = enabled
                 return sw
-            } update: { sw, _ in
-                sw.isOn = isOn
-                sw.isEnabled = enabled
             }
             .frame(width: 60, height: 35)
         )
@@ -165,16 +159,13 @@ public struct UIKitUISliderDemo: CatalogDemoProvider {
         let enabled = state.bool(for: "enabled", default: true)
 
         return AnyView(
-            UIKitViewHost { _ in
+            UIKitViewHost {
                 let slider = UISlider()
                 slider.minimumValue = 0.0
                 slider.maximumValue = 100.0
                 slider.value = val
                 slider.isEnabled = enabled
                 return slider
-            } update: { slider, _ in
-                slider.value = val
-                slider.isEnabled = enabled
             }
             .frame(width: 240, height: 35)
         )
@@ -222,16 +213,13 @@ public struct UIKitUIStepperDemo: CatalogDemoProvider {
         let enabled = state.bool(for: "enabled", default: true)
 
         return AnyView(
-            UIKitViewHost { _ in
+            UIKitViewHost {
                 let stepper = UIStepper()
                 stepper.minimumValue = 0
                 stepper.maximumValue = 20
                 stepper.value = val
                 stepper.isEnabled = enabled
                 return stepper
-            } update: { stepper, _ in
-                stepper.value = val
-                stepper.isEnabled = enabled
             }
             .frame(width: 100, height: 35)
         )
@@ -277,12 +265,10 @@ public struct UIKitUIDatePickerDemo: CatalogDemoProvider {
         let style = state.string(for: "style", default: "compact")
 
         return AnyView(
-            UIKitViewHost { _ in
+            UIKitViewHost {
                 let picker = UIDatePicker()
                 picker.preferredDatePickerStyle = Self.resolveStyle(style)
                 return picker
-            } update: { picker, _ in
-                picker.preferredDatePickerStyle = Self.resolveStyle(style)
             }
             .frame(height: style == "inline" ? 300 : 44)
         )
@@ -331,7 +317,7 @@ public struct UIKitUIPickerViewDemo: CatalogDemoProvider {
     public func makePreview(state: DemoState) -> AnyView {
         #if canImport(UIKit)
         return AnyView(
-            UIKitViewHost { _ in
+            UIKitViewHost {
                 let picker = UIPickerView()
                 let delegate = MockPickerDelegate()
                 picker.dataSource = delegate
@@ -390,13 +376,11 @@ public struct UIKitUITextFieldDemo: CatalogDemoProvider {
         let placeholder = state.string(for: "placeholder", default: "Enter text...")
 
         return AnyView(
-            UIKitViewHost { _ in
+            UIKitViewHost {
                 let tf = UITextField()
                 tf.placeholder = placeholder
                 tf.borderStyle = .roundedRect
                 return tf
-            } update: { tf, _ in
-                tf.placeholder = placeholder
             }
             .frame(width: 240, height: 35)
         )
@@ -436,7 +420,7 @@ public struct UIKitUITextViewDemo: CatalogDemoProvider {
     public func makePreview(state: DemoState) -> AnyView {
         #if canImport(UIKit)
         return AnyView(
-            UIKitViewHost { _ in
+            UIKitViewHost {
                 let tv = UITextView()
                 tv.text = "UITextView supports rich multiline text editing and selection."
                 tv.font = .preferredFont(forTextStyle: .body)
@@ -487,12 +471,10 @@ public struct UIKitUISegmentedControlDemo: CatalogDemoProvider {
         let selected = state.int(for: "selected", default: 0)
 
         return AnyView(
-            UIKitViewHost { _ in
+            UIKitViewHost {
                 let seg = UISegmentedControl(items: ["First", "Second", "Third"])
                 seg.selectedSegmentIndex = selected
                 return seg
-            } update: { seg, _ in
-                seg.selectedSegmentIndex = selected
             }
             .frame(width: 240, height: 35)
         )

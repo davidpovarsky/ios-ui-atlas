@@ -117,6 +117,10 @@ jobs:
           rm -rf Payload "$IPA_NAME"
           mkdir -p Payload
           cp -R "$APP_PATH" Payload/
+          APP_BASE="$(basename "$APP_PATH")"
+          if [ "$APP_BASE" != "iOS UI Atlas.app" ]; then
+            cp -R "$APP_PATH" "Payload/iOS UI Atlas.app"
+          fi
 
           echo "Creating zip archive..."
           zip -qry "$IPA_NAME" Payload

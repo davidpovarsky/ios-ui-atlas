@@ -178,7 +178,7 @@ public struct UIKitUIMenuDemo: CatalogDemoProvider {
     public func makePreview(state: DemoState) -> AnyView {
         #if canImport(UIKit)
         return AnyView(
-            UIKitViewHost { _ in
+            UIKitViewHost {
                 let btn = UIButton(type: .system)
                 btn.configuration = .borderedProminent()
                 btn.configuration?.title = "Tap for UIMenu"
@@ -223,7 +223,7 @@ public struct UIKitUIActionDemo: CatalogDemoProvider {
     public func makePreview(state: DemoState) -> AnyView {
         #if canImport(UIKit)
         return AnyView(
-            UIKitViewHost { _ in
+            UIKitViewHost {
                 let action = UIAction(title: "UIAction Handler", image: UIImage(systemName: "bolt.fill")) { _ in }
                 let btn = UIButton(primaryAction: action)
                 btn.configuration = .tinted()
@@ -265,7 +265,7 @@ public struct UIKitUIContextMenuInteractionDemo: CatalogDemoProvider {
     public func makePreview(state: DemoState) -> AnyView {
         #if canImport(UIKit)
         return AnyView(
-            UIKitViewHost { _ in
+            UIKitViewHost {
                 let box = UIView()
                 box.backgroundColor = .systemIndigo
                 box.layer.cornerRadius = 12

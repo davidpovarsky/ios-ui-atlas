@@ -3,44 +3,30 @@ import UIKit
 import SwiftUI
 
 public struct UIKitViewHost<V: UIView>: UIViewRepresentable {
-    public let makeView: (Context) -> V
-    public let updateView: (V, Context) -> Void
+    public let makeView: () -> V
 
-    public init(
-        make: @escaping (Context) -> V,
-        update: @escaping (V, Context) -> Void = { _, _ in }
-    ) {
+    public init(_ make: @escaping () -> V) {
         self.makeView = make
-        self.updateView = update
     }
 
     public func makeUIView(context: Context) -> V {
-        makeView(context)
+        makeView()
     }
 
-    public func updateUIView(_ uiView: V, context: Context) {
-        updateView(uiView, context)
-    }
+    public func updateUIView(_ uiView: V, context: Context) {}
 }
 
 public struct UIKitViewControllerHost<VC: UIViewController>: UIViewControllerRepresentable {
-    public let makeViewController: (Context) -> VC
-    public let updateViewController: (VC, Context) -> Void
+    public let makeViewController: () -> VC
 
-    public init(
-        make: @escaping (Context) -> VC,
-        update: @escaping (VC, Context) -> Void = { _, _ in }
-    ) {
+    public init(_ make: @escaping () -> VC) {
         self.makeViewController = make
-        self.updateViewController = update
     }
 
     public func makeUIViewController(context: Context) -> VC {
-        makeViewController(context)
+        makeViewController()
     }
 
-    public func updateUIViewController(_ uiViewController: VC, context: Context) {
-        updateViewController(uiViewController, context)
-    }
+    public func updateUIViewController(_ uiViewController: VC, context: Context) {}
 }
 #endif

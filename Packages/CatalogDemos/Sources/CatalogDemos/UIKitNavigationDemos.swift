@@ -19,7 +19,7 @@ public struct UIKitUISearchBarDemo: CatalogDemoProvider {
     public func makePreview(state: DemoState) -> AnyView {
         #if canImport(UIKit)
         return AnyView(
-            UIKitViewHost { _ in
+            UIKitViewHost {
                 let sb = UISearchBar()
                 sb.placeholder = "Search in UIKit"
                 sb.searchBarStyle = .minimal
@@ -60,7 +60,7 @@ public struct UIKitUISearchControllerDemo: CatalogDemoProvider {
     public func makePreview(state: DemoState) -> AnyView {
         #if canImport(UIKit)
         return AnyView(
-            UIKitViewHost { _ in
+            UIKitViewHost {
                 let sc = UISearchController(searchResultsController: nil)
                 sc.searchBar.placeholder = "UISearchController Integration"
                 return sc.searchBar
@@ -100,7 +100,7 @@ public struct UIKitUINavigationControllerDemo: CatalogDemoProvider {
     public func makePreview(state: DemoState) -> AnyView {
         #if canImport(UIKit)
         return AnyView(
-            UIKitViewControllerHost { _ in
+            UIKitViewControllerHost {
                 let root = UIViewController()
                 root.title = "UIKit Navigation"
                 let nav = UINavigationController(rootViewController: root)
@@ -143,7 +143,7 @@ public struct UIKitUITabBarControllerDemo: CatalogDemoProvider {
     public func makePreview(state: DemoState) -> AnyView {
         #if canImport(UIKit)
         return AnyView(
-            UIKitViewControllerHost { _ in
+            UIKitViewControllerHost {
                 let tab = UITabBarController()
                 let vc1 = UIViewController()
                 vc1.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
@@ -188,7 +188,7 @@ public struct UIKitUISplitViewControllerDemo: CatalogDemoProvider {
     public func makePreview(state: DemoState) -> AnyView {
         #if canImport(UIKit)
         return AnyView(
-            UIKitViewControllerHost { _ in
+            UIKitViewControllerHost {
                 let split = UISplitViewController(style: .doubleColumn)
                 let pri = UIViewController()
                 pri.title = "Master"
