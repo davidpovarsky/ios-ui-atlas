@@ -8,6 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: read
   contents: read
 
 jobs:
@@ -17,14 +18,38 @@ jobs:
     timeout-minutes: 35
 
     steps:
+      - name: Live Activity · refresh
+        uses: davidpovarsky/github-automation/live-refresh@main
+        continue-on-error: true
+        with:
+          event: refresh
+          device_id: ${{ secrets.NOTIFY_DEVICE_ID }}
+          token: ${{ secrets.NOTIFY_DEVICE_TOKEN }}
+          github_token: ${{ github.token }}
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Live Activity · refresh
+        uses: davidpovarsky/github-automation/live-refresh@main
+        continue-on-error: true
+        with:
+          event: refresh
+          device_id: ${{ secrets.NOTIFY_DEVICE_ID }}
+          token: ${{ secrets.NOTIFY_DEVICE_TOKEN }}
+          github_token: ${{ github.token }}
       - name: Setup log directory
         run: |
           mkdir -p build/logs
           echo "VALIDATE_LOG_DIR=$GITHUB_WORKSPACE/build/logs" >> "$GITHUB_ENV"
 
+      - name: Live Activity · refresh
+        uses: davidpovarsky/github-automation/live-refresh@main
+        continue-on-error: true
+        with:
+          event: refresh
+          device_id: ${{ secrets.NOTIFY_DEVICE_ID }}
+          token: ${{ secrets.NOTIFY_DEVICE_TOKEN }}
+          github_token: ${{ github.token }}
       - name: Inspect environment
         run: |
           {
@@ -42,6 +67,14 @@ jobs:
             xcodebuild -showsdks
           } 2>&1 | tee "$VALIDATE_LOG_DIR/01-environment.log"
 
+      - name: Live Activity · refresh
+        uses: davidpovarsky/github-automation/live-refresh@main
+        continue-on-error: true
+        with:
+          event: refresh
+          device_id: ${{ secrets.NOTIFY_DEVICE_ID }}
+          token: ${{ secrets.NOTIFY_DEVICE_TOKEN }}
+          github_token: ${{ github.token }}
       - name: Run Package Unit Tests
         run: |
           {
@@ -55,6 +88,14 @@ jobs:
             swift test --package-path Packages/AppleSDKInventory
           } 2>&1 | tee "$VALIDATE_LOG_DIR/02-package-tests.log"
 
+      - name: Live Activity · refresh
+        uses: davidpovarsky/github-automation/live-refresh@main
+        continue-on-error: true
+        with:
+          event: refresh
+          device_id: ${{ secrets.NOTIFY_DEVICE_ID }}
+          token: ${{ secrets.NOTIFY_DEVICE_TOKEN }}
+          github_token: ${{ github.token }}
       - name: Install XcodeGen
         run: |
           if ! command -v xcodegen &> /dev/null; then
@@ -63,11 +104,27 @@ jobs:
           fi
           xcodegen --version 2>&1 | tee "$VALIDATE_LOG_DIR/03-xcodegen-version.log"
 
+      - name: Live Activity · refresh
+        uses: davidpovarsky/github-automation/live-refresh@main
+        continue-on-error: true
+        with:
+          event: refresh
+          device_id: ${{ secrets.NOTIFY_DEVICE_ID }}
+          token: ${{ secrets.NOTIFY_DEVICE_TOKEN }}
+          github_token: ${{ github.token }}
       - name: Generate Xcode project
         run: |
           xcodegen generate 2>&1 | tee "$VALIDATE_LOG_DIR/04-xcodegen-generate.log"
           test -d iOSUIAtlas.xcodeproj
 
+      - name: Live Activity · refresh
+        uses: davidpovarsky/github-automation/live-refresh@main
+        continue-on-error: true
+        with:
+          event: refresh
+          device_id: ${{ secrets.NOTIFY_DEVICE_ID }}
+          token: ${{ secrets.NOTIFY_DEVICE_TOKEN }}
+          github_token: ${{ github.token }}
       - name: Discover iOS Simulators
         id: simulators
         run: |
@@ -83,6 +140,14 @@ jobs:
           echo "iphone_udid=$IPHONE_ID" >> "$GITHUB_OUTPUT"
           echo "ipad_udid=$IPAD_ID" >> "$GITHUB_OUTPUT"
 
+      - name: Live Activity · refresh
+        uses: davidpovarsky/github-automation/live-refresh@main
+        continue-on-error: true
+        with:
+          event: refresh
+          device_id: ${{ secrets.NOTIFY_DEVICE_ID }}
+          token: ${{ secrets.NOTIFY_DEVICE_TOKEN }}
+          github_token: ${{ github.token }}
       - name: Run App Unit Tests (iPhone Simulator)
         run: |
           set -o pipefail
@@ -103,6 +168,14 @@ jobs:
             CODE_SIGN_IDENTITY="" \
             2>&1 | tee "$VALIDATE_LOG_DIR/05-app-unit-tests.log"
 
+      - name: Live Activity · refresh
+        uses: davidpovarsky/github-automation/live-refresh@main
+        continue-on-error: true
+        with:
+          event: refresh
+          device_id: ${{ secrets.NOTIFY_DEVICE_ID }}
+          token: ${{ secrets.NOTIFY_DEVICE_TOKEN }}
+          github_token: ${{ github.token }}
       - name: Run Smoke UI Tests (iPad Simulator)
         run: |
           set -o pipefail
@@ -126,6 +199,15 @@ jobs:
             CODE_SIGN_IDENTITY="" \
             2>&1 | tee "$VALIDATE_LOG_DIR/06-ipad-ui-smoke.log"
 
+      - name: Live Activity · refresh
+        if: always()
+        uses: davidpovarsky/github-automation/live-refresh@main
+        continue-on-error: true
+        with:
+          event: refresh
+          device_id: ${{ secrets.NOTIFY_DEVICE_ID }}
+          token: ${{ secrets.NOTIFY_DEVICE_TOKEN }}
+          github_token: ${{ github.token }}
       - name: Upload validation logs
         if: always()
         uses: actions/upload-artifact@v4
