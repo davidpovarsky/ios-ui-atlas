@@ -7,7 +7,6 @@ on:
       - "Probe runners"
       - "Validate"
     types:
-      - requested
       - in_progress
       - completed
 
